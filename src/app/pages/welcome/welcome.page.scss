@@ -1,0 +1,46 @@
+
+ion-header {
+  --background: var(--ion-color-primary) !important;
+  background: var(--ion-color-primary) !important;
+
+  ion-toolbar {
+    //margin-bottom: 3%;
+  }
+
+  .logo {
+    margin-top: -10%;
+    margin-bottom: -5%;
+  }
+
+  .user {
+    padding-left: 4%;
+
+  }
+
+  ion-card {
+    --background: var(--ion-color-medium) !important;
+    //--background: #c8c7c7 !important;
+  }
+
+  .card {
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
+    background: var(--ion-color-medium) !important;
+
+  }
+
+  .request {
+    background: #ffffff;
+    margin-right: 2%;
+    margin-left: 2%;
+    border-radius: 5%;
+    padding-top: 5%;
+    margin-top: 2%;
+
+    p {
+      margin-left: 10%;
+      font-size: large;
+    }
+  }
+
+}

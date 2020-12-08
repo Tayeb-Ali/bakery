@@ -24,3 +24,22 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+ion-toolbar {
+  padding-left: 16px;
+  //padding-bottom: 0px;
+  //border-radius: 0px 0px 30px 30px;
+  --background: var(--ion-color-primary);
+  --border-color: var(--ion-color-primary);
+  --border-style: none !important;
+
+  //ion-icon {
+  //  color: var(--ion-color-light) !important;
+  //}
+
+  ion-title {
+    //font-family: tbold;
+    color: white;
+  }
+}
