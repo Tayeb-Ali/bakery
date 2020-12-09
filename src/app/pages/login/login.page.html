@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" color="medium">
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <ion-title class="ion-text-center">Log in</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <br>
+    <div class="header"></div>
+    <div class="card">
+        <ion-card-content>
+            <h1>Welcome: {{accountType}}</h1>
+        </ion-card-content>
+    </div>
 
-<ion-content>
+    <ion-card color="medium">
+        <ion-card-content>
+            <ion-item>
+                <ion-label position="floating">Phone Number:</ion-label>
+                <ion-input type="number" [(ngModel)]="loginInfo.phone" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Password:</ion-label>
+                <ion-input type="password" [(ngModel)]="loginInfo.password" required></ion-input>
+            </ion-item>
+        </ion-card-content>
+
+        <ion-button class="ion-text-center" expand="full" size="large" shape="round">Login</ion-button>
+
+    </ion-card>
+
+    <ion-card-content>
+        <a href="#">
+            <ion-label color="danger"> Forget Your Password?</ion-label>
+        </a>
+    </ion-card-content>
 
 </ion-content>

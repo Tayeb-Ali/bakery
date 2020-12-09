@@ -25,15 +25,31 @@ ion-card {
 
 .header {
   background-color: var(--ion-color-primary) !important;
-  padding-top: 18%;
-  margin-top: -15%;
-  margin-bottom: -6%;
+  padding-top: 13%;
+  margin-top: -7%;
+  margin-bottom: -8%;
 }
 
 .card {
-  border-top-left-radius: 10%;
-  border-top-right-radius: 10%;
+  border-top-left-radius: 9%;
+  border-top-right-radius: 9%;
   background: var(--ion-color-medium) !important;
-  margin-top: -5%;
+  margin-top: 6%;
+}
 
+.order {
+  color: var(--ion-color-primary);
+}
+
+.request {
+  background: #ffffff;
+  margin-right: 2%;
+  margin-left: 2%;
+  border-radius: 5%;
+  margin-top: 2%;
+
+  p {
+    margin-left: 10%;
+    font-size: large;
+  }
 }

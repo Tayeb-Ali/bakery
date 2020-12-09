@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true" color="medium">
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+            </ion-buttons>
+        </ion-toolbar>
+
+        <div class="user">
+            <ion-card-subtitle color="light">state of the bakery</ion-card-subtitle>
+        </div>
+        <br>
+    </ion-header>
+    <br>
+    <div class="header"></div>
+    <div class="card">
+        <ion-card-content>
+            <h2>Possible Problems</h2>
+        </ion-card-content>
+    </div>
+    <ion-card>
+        <ion-card-content>
+            <ion-item>
+                <ion-label>Outta isn't in Bakery store?</ion-label>
+                <!--            <ion-checkbox slot="end" [(ngModel)]=""></ion-checkbox>-->
+                <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+                <ion-label>Bakery is closed?</ion-label>
+                <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+                <ion-label>Other</ion-label>
+                <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+            </ion-item>
+
+            <div>
+                <ion-label style="margin-left: 4%;"><p>More details</p></ion-label>
+                <ion-textarea rows="4">
+
+                </ion-textarea>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+  <div class="ion-text-center"><ion-button color="secondary">
+        <ion-label color="light">send Report</ion-label>
+  </ion-button></div>
+
+    <ion-card>
+        <ion-card-content>
+            <ion-card-title>Reported by:</ion-card-title>
+            <p>Ibrahim Ali Ahmed</p>
+            <p>Al jref Area</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

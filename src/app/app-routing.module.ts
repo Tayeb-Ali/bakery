@@ -23,6 +23,18 @@ const routes: Routes = [
     path: 'agent-home',
     loadChildren: () => import('./pages/agent-home/agent-home.module').then( m => m.AgentHomePageModule)
   },
+  {
+    path: 'order-details',
+    loadChildren: () => import('./pages/order-details/order-details.module').then( m => m.OrderDetailsPageModule)
+  },
+  {
+    path: 'received-order-details',
+    loadChildren: () => import('./pages/received-order-details/received-order-details.module').then( m => m.ReceivedOrderDetailsPageModule)
+  },
+  {
+    path: 'state-of-bakery',
+    loadChildren: () => import('./pages/state-of-bakery/state-of-bakery.module').then( m => m.StateOfBakeryPageModule)
+  },
 ];
 
 @NgModule({

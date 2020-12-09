@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true" color="medium">
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+            </ion-buttons>
+        </ion-toolbar>
+
+        <div class="user">
+            <ion-card-subtitle color="light">Requesting Order</ion-card-subtitle>
+            <ion-card-title color="light">Order #{{order?.order_id}}</ion-card-title>
+        </div>
+        <br>
+    </ion-header>
+    <br>
+    <div class="header"></div>
+    <div class="card">
+        <ion-card-content>
+            <h1>Order Details</h1>
+        </ion-card-content>
+    </div>
+    <ion-card>
+        <ion-card-content>
+            <h1>Order <b style="color:var(--ion-color-primary)">#{{order?.order_id}}</b></h1>
+            <h2>Number of packages (quota)</h2>
+            <ion-button expand="full" size="large">
+                <ion-label color="light">{{order?.quota}}</ion-label>
+            </ion-button>
+        </ion-card-content>
+    </ion-card>
+
+    <div style="text-align:center">
+        <ion-button color="secondary">
+            <ion-label color="light">confirmed</ion-label>
+        </ion-button>
+    </div>
+
+    <ion-card>
+        <!--    <ion-card color="medium">-->
+        <ion-card-content>
+            <h1>Order by:</h1>
+            <p><b>{{order?.user?.name}}</b></p>
+            <h2>Owner of {{order?.user?.baker}}</h2>
+        </ion-card-content>
+    </ion-card>
+
+
+</ion-content>

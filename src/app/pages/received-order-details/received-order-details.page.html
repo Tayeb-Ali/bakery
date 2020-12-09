@@ -1,0 +1,73 @@
+<ion-content [fullscreen]="true" color="medium">
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+            </ion-buttons>
+        </ion-toolbar>
+
+        <div class="user">
+            <ion-card-subtitle color="light">Delivered Order Confirmation</ion-card-subtitle>
+            <ion-card-title color="light">Order #{{order?.order_id}}</ion-card-title>
+        </div>
+        <br>
+    </ion-header>
+    <br>
+    <div class="header"></div>
+    <div class="card">
+        <ion-card-content>
+            <h3>New received Order Details</h3>
+        </ion-card-content>
+    </div>
+    <ion-card>
+        <ion-card-content>
+            <h1>Order <b style="color:var(--ion-color-primary)">#{{order?.order_id}}</b></h1>
+            <ion-item lines="none">
+                <ion-label><span slot="start">Arrive On: {{order?.arrive_on}}</span></ion-label>
+            </ion-item>
+            <p>packages received</p>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="4">Siz</ion-col>
+                    <ion-col size="4">QTY</ion-col>
+                    <ion-col size="4">Total</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="4">50Kg</ion-col>
+                    <ion-col size="4">30</ion-col>
+                    <ion-col size="4">12,000</ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-content>
+            <ion-card-title>Driver Information:</ion-card-title>
+
+            <p>Id: 2123</p>
+            <p>Number: 091232323</p>
+            <p>Name: Ibrahim Ali Ahmed</p>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-content>
+            <ion-card-title>Received by:</ion-card-title>
+            <p>Ibrahim Ali Ahmed</p>
+            <p>Owner of 84 bakery</p>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar color="medium">
+        <ion-button color="secondary">
+            <ion-label color="light">Deliver Received</ion-label>
+        </ion-button>
+        <ion-button>
+            <ion-label color="light">confirmed</ion-label>
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

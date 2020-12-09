@@ -25,12 +25,15 @@ ion-header {
 
   }
 
+  .order {
+    color: var(--ion-color-primary);
+  }
+
   .request {
     background: #ffffff;
     margin-right: 2%;
     margin-left: 2%;
     border-radius: 5%;
-    padding-top: 5%;
     margin-top: 2%;
 
     p {
