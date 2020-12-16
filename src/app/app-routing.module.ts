@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'agent-home',
-    loadChildren: () => import('./pages/agent-home/agent-home.module').then( m => m.AgentHomePageModule)
+    loadChildren: () => import('./pages/agents/agent-home/agent-home.module').then(m => m.AgentHomePageModule)
   },
   {
     path: 'order-details',

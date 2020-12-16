@@ -8,7 +8,7 @@
     <div class="header"></div>
     <div class="card">
         <ion-card-content>
-            <h1>Welcome: {{accountType}}</h1>
+            <h1>Welcome Back</h1>
         </ion-card-content>
     </div>
 
@@ -16,7 +16,7 @@
         <ion-card-content>
             <ion-item>
                 <ion-label position="floating">Phone Number:</ion-label>
-                <ion-input type="number" [(ngModel)]="loginInfo.phone" required></ion-input>
+                <ion-input type="number" [(ngModel)]="loginInfo.mobile" required></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label position="floating">Password:</ion-label>
@@ -24,7 +24,8 @@
             </ion-item>
         </ion-card-content>
 
-        <ion-button class="ion-text-center" expand="full" size="large" shape="round">Login</ion-button>
+        <ion-button (click)="login()" class="ion-text-center" expand="full" size="large" shape="round">Login
+        </ion-button>
 
     </ion-card>
 
