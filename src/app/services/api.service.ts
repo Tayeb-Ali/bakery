@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-const httpOptions = {
-    headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('api_token')}`
-    })
-};
+// const httpOptions = {
+//     headers: new HttpHeaders({
+//         'Content-Type': 'application/json',
+//         Authorization: `Bearer ${localStorage.getItem('api_token')}`
+//     })
+// };
 
 @Injectable({
     providedIn: 'root'
@@ -14,17 +14,29 @@ const httpOptions = {
 export class ApiService {
 
     baseUrl = 'http://bakery.test/api/v1';
-    private userToken: string;
+    private httpOptions: any;
 
     constructor(private http: HttpClient) {
+        this.getToken();
+    }
+
+    getToken() {
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('api_token')}`
+            })
+        };
     }
 
     getDataFromApi(url) {
-        return this.http.get(`${this.baseUrl}/${url}`, httpOptions);
+        // this.getToken();
+        return this.http.get(`${this.baseUrl}/${url}`, this.httpOptions);
     }
 
     postDataToApi(url, data) {
-        return this.http.post(`${this.baseUrl}/${url}`, data, httpOptions);
+        // this.getToken();
+        return this.http.post(`${this.baseUrl}/${url}`, data, this.httpOptions);
     }
 
 

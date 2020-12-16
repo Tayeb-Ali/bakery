@@ -7,8 +7,10 @@
         </ion-toolbar>
 
         <div class="user">
+            <!--            <ion-card-subtitle color="light">Agent</ion-card-subtitle>-->
             <ion-card-subtitle color="light">Agent</ion-card-subtitle>
-            <ion-card-title color="light">Mustafa Ahmed Omer</ion-card-title>
+            <!--            <ion-card-title color="light">Mustafa Ahmed Omer</ion-card-title>-->
+            <ion-card-title color="light">{{userInfo?.name}}</ion-card-title>
         </div>
         <br>
         <br>
@@ -16,18 +18,18 @@
             <ion-card-content>
                 <br>
                 <br>
-                <ion-button color="secondary">Report a Problem</ion-button>
-                <ion-button>Choose Area</ion-button>
+                <ion-button class="button-size" expand="block" color="secondary"><span style="color: white">Report a Problem</span>
+                </ion-button>
             </ion-card-content>
 
             <ion-row>
                 <ion-col size="6"><p><b>Last Order</b></p></ion-col>
-                <ion-col size="6"><p class="order"><b>View All Order</b></p></ion-col>
+                <ion-col size="6"><p class="order "><b>View All Order</b></p></ion-col>
 
             </ion-row>
 
             <ion-item class="request" *ngFor="let baker of bakers">
-                <div slot="start" class="ion-text-lg-left">
+                <div slot="start" class="ion-text-lg-left" (click)="listOrders(baker)">
                     <b>{{baker.name}}</b>
                 </div>
             </ion-item>

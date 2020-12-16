@@ -19,14 +19,15 @@ ion-header {
   }
 
   .card {
-    border-top-left-radius: 9%;
-    border-top-right-radius: 9%;
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
     background: var(--ion-color-medium) !important;
 
   }
 
   .order {
     color: var(--ion-color-primary);
+    text-align: end;
   }
 
   .request {

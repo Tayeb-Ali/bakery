@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../services/api.service';
 import {Router} from '@angular/router';
+import {AppComponent} from '../../app.component';
 
 @Component({
     selector: 'app-login',
@@ -12,7 +13,10 @@ export class LoginPage implements OnInit {
     response: any;
     loginInfo = {mobile: null, password: null};
 
-    constructor(private api: ApiService, public route: Router) {
+    constructor(
+        private api: ApiService,
+        public route: Router,
+        private appComponent: AppComponent) {
     }
 
     ngOnInit() {
@@ -25,7 +29,10 @@ export class LoginPage implements OnInit {
                 if (this.response.status) {
                     // console.log(response);
                     localStorage.setItem('api_token', this.response.api_token);
+                    localStorage.setItem('user', JSON.stringify(this.response.user));
                     if (this.response.user.role === 2) {
+                        this.appComponent.getUser();
+                        this.api.getToken();
                         this.route.navigateByUrl('/agent-home');
                     } else if (this.response.user.role === 3) {
                         this.route.navigateByUrl('/home');
