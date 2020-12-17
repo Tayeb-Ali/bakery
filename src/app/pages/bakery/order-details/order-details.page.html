@@ -23,9 +23,8 @@
         <ion-card-content>
             <h1>Order <b style="color:var(--ion-color-primary)">#{{order?.order_id}}</b></h1>
             <h2>Number of packages (quota)</h2>
-            <ion-button expand="full" size="large">
-                <ion-label color="light">{{order?.quota}}</ion-label>
-            </ion-button>
+            <ion-input class="input-text" inputmode="numeric" type="number" required min="1" max="10"
+                       [(ngModel)]="order.quota"></ion-input>
         </ion-card-content>
     </ion-card>
 
@@ -39,8 +38,8 @@
         <!--    <ion-card color="medium">-->
         <ion-card-content>
             <h1>Order by:</h1>
-            <p><b>{{order?.user?.name}}</b></p>
-            <h2>Owner of {{order?.user?.baker}}</h2>
+            <p><b>{{userInfo?.name}}</b></p>
+            <h2>Owner of {{data?.name}}</h2>
         </ion-card-content>
     </ion-card>
 

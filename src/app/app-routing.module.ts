@@ -39,7 +39,7 @@ const routes: Routes = [
     },
     {
         path: 'state-of-bakery',
-        loadChildren: () => import('./pages/state-of-bakery/state-of-bakery.module').then(m => m.StateOfBakeryPageModule)
+        loadChildren: () => import('./pages/agents/state-of-bakery/state-of-bakery.module').then(m => m.StateOfBakeryPageModule)
     },
     {
         path: 'list-orders',

@@ -25,7 +25,7 @@
                 <ion-label slot="start" class="ion-text-lg-left" (click)="openDetails(request)">
                     <p><b>Order</b> <span style="color: var(--ion-color-primary)"> #{{request?.id}}</span></p>
                     <br>
-                    <p>Arrival On: {{request?.arrival_on| date: 'mediumDate'}}</p>
+                    <p>Arrival On: {{request?.arrival_on| date: 'd MMM, y'}}</p>
                     <p><b>{{request.qty}} Packages</b></p></ion-label>
                 <br>
             </div>

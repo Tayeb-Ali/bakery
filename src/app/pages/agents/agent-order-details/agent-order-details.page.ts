@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ApiService} from '../../../services/api.service';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-order-details',
@@ -12,17 +13,9 @@ export class AgentOrderDetailsPage implements OnInit {
     data: any;
 
     constructor(private router: Router,
+                private nav: NavController,
                 private api: ApiService) {
-        const data = this.router.getCurrentNavigation().extras;
-        // console.log('deit: ', data);
-        // @ts-ignore
-        this.data = data;
-        // this.order = {
-        //     order_id: 22, quota: 23, user: {
-        //         name: 'Ahmed Ali',
-        //         baker: 'Hassan Ali'
-        //     }
-        // };
+        this.data = this.router.getCurrentNavigation().extras;
     }
 
     ngOnInit() {
@@ -34,4 +27,7 @@ export class AgentOrderDetailsPage implements OnInit {
             });
     }
 
+    report(id: any) {
+        this.nav.navigateForward('state-of-bakery', id);
+    }
 }

@@ -7,8 +7,8 @@
         </ion-toolbar>
 
         <div class="user">
-            <ion-card-subtitle color="light">Requesting Order</ion-card-subtitle>
-            <ion-card-title color="light">Order #{{order?.order_id}}</ion-card-title>
+            <ion-card-subtitle color="light">Details about</ion-card-subtitle>
+            <ion-card-title color="light">Order #{{order?.id}}</ion-card-title>
         </div>
         <br>
     </ion-header>
@@ -20,29 +20,26 @@
         </ion-card-content>
     </div>
     <ion-card>
-        <ion-card-content>
-            <h1>Order <b style="color:var(--ion-color-primary)">#{{order?.order_id}}</b></h1>
-            <h2>Number of packages (quota)</h2>
-            <ion-button expand="full" size="large">
-                <ion-label color="light">{{order?.quota}}</ion-label>
-            </ion-button>
-        </ion-card-content>
+        <div class="request">
+            <ion-label slot="start" class="ion-text-lg-left">
+                <p><b>Order</b> <span style="color: var(--ion-color-primary)"> #{{order?.id}}</span></p>
+                <br>
+                <p>Arrival On: {{order?.arrival_on| date: 'd MMM, y'}}</p>
+                <p><b>{{order?.qty}} Packages</b></p></ion-label>
+            <br>
+        </div>
     </ion-card>
-
-    <div style="text-align:center">
-        <ion-button color="secondary">
-            <ion-label color="light">confirmed</ion-label>
-        </ion-button>
-    </div>
 
     <ion-card>
         <!--    <ion-card color="medium">-->
         <ion-card-content>
-            <h1>Order by:</h1>
+            <h1>Received by:</h1>
             <p><b>{{order?.user?.name}}</b></p>
-            <h2>Owner of {{order?.user?.baker}}</h2>
+            <h2>Owner of {{order?.bakery?.name}}</h2>
         </ion-card-content>
     </ion-card>
 
-
+    <ion-button (click)="report(order?.bakery?.id)" class="button-size" expand="block" color="secondary">
+        <span style="color: white">Report a Problem</span>
+    </ion-button>
 </ion-content>

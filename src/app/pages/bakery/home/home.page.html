@@ -2,8 +2,8 @@
     <ion-header [translucent]="true">
         <ion-toolbar>
             <ion-buttons slot="end">
-                <ion-button>
-                    <ion-icon class="light" src="assets/icon/on.svg"></ion-icon>
+                <ion-button (click)="bakeryStatus()">
+                    <ion-icon class="light" [src]="bakeryStatusIcon"></ion-icon>
                 </ion-button>
             </ion-buttons>
             <ion-buttons slot="start">
@@ -15,7 +15,7 @@
 
         <div class="user">
             <ion-card-subtitle color="light">Home</ion-card-subtitle>
-            <ion-card-title color="light">Al Jref West Bakery</ion-card-title>
+            <ion-card-title color="light">{{bakeryInfo?.name}}</ion-card-title>
         </div>
         <br>
         <br>
@@ -24,23 +24,23 @@
                 <br>
                 <br>
                 <ion-button color="tertiary">Deliver Order</ion-button>
-                <ion-button color="secondary">Request Order</ion-button>
+                <ion-button (click)="requestOrder(bakeryInfo)" color="secondary">Request Order</ion-button>
             </ion-card-content>
 
             <ion-row>
-                <ion-col size="6"><p>Last Order</p></ion-col>
-                <ion-col size="6"><p>View All Order</p></ion-col>
+                <ion-col size="6"><p><b>Last Order</b></p></ion-col>
+                <ion-col size="6"><p class="order">View All Order</p></ion-col>
 
             </ion-row>
 
-            <div class="request" *ngFor="let request of requestes">
+            <div class="request" *ngFor="let request of requests">
                 <ion-label slot="start" class="ion-text-lg-left">
-                    <p><b>Order</b> <span style="color: var(--ion-color-primary)"> #{{request?.order_id}}</span></p>
+                    <p><b>Order</b> <span style="color: var(--ion-color-primary)"> #{{request?.id}}</span></p>
                     <br>
-                    <p>Requested On: {{request?.requested_on}}</p>
-                    <p>Arrive On: {{request?.arrive_on}}</ion-label>
+                    <p>Requested On: {{request?.request_on | date: 'd MMM, y'}}</p>
+                    <p>Arrive On: {{request?.arrival_on | date:'d MMM, y'}}</ion-label>
+                <br>
             </div>
-
         </div>
     </ion-header>
 

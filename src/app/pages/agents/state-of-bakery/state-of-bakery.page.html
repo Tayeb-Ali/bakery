@@ -7,7 +7,7 @@
         </ion-toolbar>
 
         <div class="user">
-            <ion-card-subtitle color="light">state of the bakery</ion-card-subtitle>
+            <h2 style="color:#ffffff;">state of the bakery</h2>
         </div>
         <br>
     </ion-header>
@@ -20,38 +20,35 @@
     </div>
     <ion-card>
         <ion-card-content>
-            <ion-item>
-                <ion-label>Outta isn't in Bakery store?</ion-label>
-                <!--            <ion-checkbox slot="end" [(ngModel)]=""></ion-checkbox>-->
-                <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-                <ion-label>Bakery is closed?</ion-label>
-                <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-            </ion-item>
-            <ion-item>
-                <ion-label>Other</ion-label>
-                <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+            <ion-item *ngFor="let reason of reasons; let i = index">
+                <ion-label>{{reason.name}}</ion-label>
+                <ion-checkbox mode="ios"
+                              [disabled]="reasons[i].value"
+                              (ionChange)="getTitle(reasons[i].title)"
+                              (click)="selection(reason.name);">
+                </ion-checkbox>
             </ion-item>
 
             <div>
                 <ion-label style="margin-left: 4%;"><p>More details</p></ion-label>
-                <ion-textarea rows="4">
+                <ion-textarea [(ngModel)]="report.report_details" rows="4">
 
                 </ion-textarea>
             </div>
         </ion-card-content>
     </ion-card>
 
-  <div class="ion-text-center"><ion-button color="secondary">
-        <ion-label color="light">send Report</ion-label>
-  </ion-button></div>
+    <div class="ion-text-center">
+        <ion-button color="secondary" (click)="sendReport()">
+            <ion-label color="light">Send Report</ion-label>
+        </ion-button>
+    </div>
 
     <ion-card>
         <ion-card-content>
             <ion-card-title>Reported by:</ion-card-title>
-            <p>Ibrahim Ali Ahmed</p>
-            <p>Al jref Area</p>
+            <p>{{userInfo?.name}}</p>
+            <p>{{userInfo?.areas}}</p>
         </ion-card-content>
     </ion-card>
 </ion-content>

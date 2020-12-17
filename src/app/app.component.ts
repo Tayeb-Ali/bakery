@@ -29,6 +29,6 @@ export class AppComponent {
     }
 
     getUser() {
-        this.userInfo = JSON.parse(localStorage.getItem('user'));
+        return this.userInfo = JSON.parse(localStorage.getItem('user'));
     }
 }

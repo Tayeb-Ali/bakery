@@ -49,3 +49,12 @@ ion-card {
     font-size: large;
   }
 }
+
+.input-text {
+  --background: var(--ion-color-primary) !important;
+  --color: var(--ion-color-light) !important;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+
+}

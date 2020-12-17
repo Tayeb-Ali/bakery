@@ -1,4 +1,7 @@
 import {Component} from '@angular/core';
+import {ApiService} from '../../../services/api.service';
+import {AppComponent} from '../../../app.component';
+import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-home',
@@ -6,24 +9,39 @@ import {Component} from '@angular/core';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-    requestes: any;
+    requests: any;
+    userInfo: any;
+    bakeryInfo: any;
+    bakeryStatusIcon: any;
 
-    constructor() {
-        this.requestes = [
-            {
-                order_id: 1,
-                requested_on: '22/10/2020',
-                arrive_on: '30/10/2020',
-            }, {
-                order_id: 22,
-                requested_on: '22/10/2020',
-                arrive_on: '30/10/2020',
-            }, {
-                order_id: 45,
-                requested_on: '22/10/2020',
-                arrive_on: '30/10/2020',
-            }
-        ];
+    constructor(private api: ApiService,
+                private nav: NavController,
+                private appComponent: AppComponent) {
+        this.userInfo = appComponent.userInfo;
+        this.getBakery();
     }
 
+    getBakery() {
+        this.api.getDataFromApi('home_bakery/' + this.userInfo.id)
+            .subscribe(response => {
+                // @ts-ignore
+                this.requests = response.data;
+                // @ts-ignore
+                this.bakeryInfo = response.bakeryInfo;
+                if (this.bakeryInfo.status) {
+                    this.bakeryStatusIcon = 'assets/icon/on.svg';
+                } else {
+                    this.bakeryStatusIcon = 'assets/icon/off.svg';
+                }
+                // console.log('res: ', this.bakeryInfo);
+            });
+    }
+
+    bakeryStatus() {
+
+    }
+
+    requestOrder(item) {
+        this.nav.navigateForward('order-details', item);
+    }
 }
