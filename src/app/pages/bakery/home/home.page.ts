@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ApiService} from '../../../services/api.service';
 import {AppComponent} from '../../../app.component';
 import {NavController} from '@ionic/angular';
+import {HelperService} from '../../../services/helper.service';
 
 @Component({
     selector: 'app-home',
@@ -16,16 +17,19 @@ export class HomePage {
 
     constructor(private api: ApiService,
                 private nav: NavController,
+                public helper: HelperService,
                 private appComponent: AppComponent) {
         this.userInfo = appComponent.userInfo;
         this.getBakery();
     }
 
     getBakery() {
+        this.helper.startLoad();
         this.api.getDataFromApi('home_bakery/' + this.userInfo.id)
             .subscribe(response => {
                 // @ts-ignore
                 this.requests = response.data;
+                this.helper.dismissLoader();
                 // @ts-ignore
                 this.bakeryInfo = response.bakeryInfo;
                 if (this.bakeryInfo.status) {
@@ -34,11 +38,12 @@ export class HomePage {
                     this.bakeryStatusIcon = 'assets/icon/off.svg';
                 }
                 // console.log('res: ', this.bakeryInfo);
+
             });
     }
 
     bakeryStatus() {
-
+        this.nav.navigateForward('state-of-bakery', this.bakeryInfo);
     }
 
     requestOrder(item) {

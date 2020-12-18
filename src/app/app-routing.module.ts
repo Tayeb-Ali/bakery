@@ -38,12 +38,17 @@ const routes: Routes = [
             .then(m => m.ReceivedOrderDetailsPageModule)
     },
     {
-        path: 'state-of-bakery',
-        loadChildren: () => import('./pages/agents/state-of-bakery/state-of-bakery.module').then(m => m.StateOfBakeryPageModule)
+        path: 'agent-state-of-bakery',
+        loadChildren: () => import('./pages/agents/agent-state-of-bakery/agent-state-of-bakery.module')
+            .then(m => m.AgentStateOfBakeryPageModule)
     },
     {
         path: 'list-orders',
         loadChildren: () => import('./pages/agents/list-orders/list-orders.module').then(m => m.ListOrdersPageModule)
+    },
+    {
+        path: 'state-of-bakery',
+        loadChildren: () => import('./pages/bakery/state-of-bakery/state-of-bakery.module').then(m => m.StateOfBakeryPageModule)
     },
 ];
 

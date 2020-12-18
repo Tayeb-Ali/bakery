@@ -1,0 +1,53 @@
+<ion-content [fullscreen]="true" color="medium">
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+            </ion-buttons>
+        </ion-toolbar>
+
+        <div class="user">
+            <h2 style="color:#ffffff;">state of the bakery</h2>
+        </div>
+        <br>
+    </ion-header>
+    <br>
+    <div class="header"></div>
+    <div class="card">
+        <ion-card-content>
+            <h2>Information:</h2>
+        </ion-card-content>
+    </div>
+    <ion-card>
+        <ion-card-content>
+            <ion-item *ngFor="let reason of reasons; let i = index">
+                <ion-label>{{reason.name}}</ion-label>
+                <ion-checkbox mode="ios"
+                              [disabled]="reasons[i].value"
+                              (click)="selection(reason.name);">
+                </ion-checkbox>
+            </ion-item>
+
+            <div>
+                <ion-label style="margin-left: 4%;"><p>More details</p></ion-label>
+                <ion-textarea [(ngModel)]="bakery.report_details" rows="4">
+
+                </ion-textarea>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+    <!--  <div class="ion-text-center">-->
+    <!--    <ion-button color="secondary" (click)="sendReport()">-->
+    <!--      <ion-label color="light">Send Report</ion-label>-->
+    <!--    </ion-button>-->
+    <!--  </div>-->
+
+    <ion-card>
+        <ion-card-content>
+            <ion-card-title>Reported by:</ion-card-title>
+            <p>{{userInfo?.name}}</p>
+            <p>Owner of {{bakeryInfo?.name}}</p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

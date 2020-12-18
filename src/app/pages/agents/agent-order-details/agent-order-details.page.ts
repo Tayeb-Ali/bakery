@@ -28,6 +28,6 @@ export class AgentOrderDetailsPage implements OnInit {
     }
 
     report(id: any) {
-        this.nav.navigateForward('state-of-bakery', id);
+        this.nav.navigateForward('agent-state-of-bakery', id);
     }
 }

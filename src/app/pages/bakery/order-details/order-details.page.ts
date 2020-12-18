@@ -24,7 +24,7 @@ export class OrderDetailsPage implements OnInit {
     ngOnInit() {
         this.order.bakeryId = this.data.id;
         this.order.userId = this.userInfo.id;
-        this.api.postDataToApi('orders/', this.order)
+        this.api.postDataToApi('orders', this.order)
             .subscribe(response => {
                 // @ts-ignore
                 this.order = response.data;

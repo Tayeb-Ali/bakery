@@ -5,10 +5,10 @@ import {AppComponent} from '../../../app.component';
 
 @Component({
     selector: 'app-state-of-bakery',
-    templateUrl: './state-of-bakery.page.html',
-    styleUrls: ['./state-of-bakery.page.scss'],
+    templateUrl: './agent-state-of-bakery.page.html',
+    styleUrls: ['./agent-state-of-bakery.page.scss'],
 })
-export class StateOfBakeryPage implements OnInit {
+export class AgentStateOfBakeryPage implements OnInit {
     report: any = {reason: null, id: null, report_details: null, report_by: null};
     userInfo: any;
     id: any;
@@ -61,7 +61,6 @@ export class StateOfBakeryPage implements OnInit {
     }
 
     getTitle(reason) {
-        // console.log('title: ', reason);
         this.report.reason = reason;
     }
 }
