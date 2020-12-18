@@ -40,6 +40,6 @@ export class AgentHomePage implements OnInit {
     }
 
     listOrders(item) {
-        this.navController.navigateForward('/list-orders', item);
+        this.navController.navigateForward('/agent-list-orders', item);
     }
 }

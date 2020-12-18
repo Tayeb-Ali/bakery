@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AlertController, LoadingController, ToastController} from '@ionic/angular';
 import {ApiService} from './api.service';
+import {Router} from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -12,6 +13,7 @@ export class HelperService {
         public toast: ToastController,
         public alert: AlertController,
         public api: ApiService,
+        public router: Router,
         public loading: LoadingController
     ) {
     }
@@ -28,10 +30,11 @@ export class HelperService {
         await alert.present();
     }
 
-    async setToast(getMessage: null) {
+    async setToast(getMessage: null, getDuration: 300) {
         const localToast = await this.toast.create({
             message: getMessage,
-            duration: 3000
+            duration: getDuration,
+            position: 'middle'
         });
         await localToast.present();
     }
@@ -62,10 +65,20 @@ export class HelperService {
 
     bakeryStatus(data) {
         this.startLoad();
-        this.api.postDataToApi('b', data)
+        this.api.updateDataToApi('bakeries/' + data.id, data)
             .subscribe(response => {
                 this.dismissLoader();
-                console.log();
+                console.log('update: ', response);
+                // @ts-ignore
+                if (response.success) {
+                    // @ts-ignore
+                    this.setToast(response.message, 200);
+                    return this.router.navigateByUrl('home');
+                } else {
+                    // @ts-ignore
+                    this.setToast('error', 200);
+                    return response;
+                }
             }, error => {
                 console.error(error);
                 this.dismissLoader();

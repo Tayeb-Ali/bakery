@@ -49,3 +49,13 @@ ion-header {
     font-size: large;
   }
 }
+
+
+.input-text {
+  --background: var(--ion-color-primary) !important;
+  --color: var(--ion-color-light) !important;
+  //text-align: center;
+  font-size: medium;
+  font-weight: bold;
+
+}

@@ -4,10 +4,10 @@ import {NavController} from '@ionic/angular';
 
 @Component({
     selector: 'app-list-orders',
-    templateUrl: './list-orders.page.html',
-    styleUrls: ['./list-orders.page.scss'],
+    templateUrl: './agent-list-orders.page.html',
+    styleUrls: ['./agent-list-orders.page.scss'],
 })
-export class ListOrdersPage implements OnInit {
+export class AgentListOrdersPage implements OnInit {
     order: any;
     data: any;
 

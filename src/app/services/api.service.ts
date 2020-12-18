@@ -39,5 +39,10 @@ export class ApiService {
         return this.http.post(`${this.baseUrl}/${url}`, data, this.httpOptions);
     }
 
+    updateDataToApi(url, data) {
+        // this.getToken();
+        return this.http.put(`${this.baseUrl}/${url}`, data, this.httpOptions);
+    }
+
 
 }

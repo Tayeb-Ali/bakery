@@ -9,17 +9,17 @@ import {AppComponent} from '../../../app.component';
     styleUrls: ['./state-of-bakery.page.scss'],
 })
 export class StateOfBakeryPage implements OnInit {
-    bakery: any;
+    bakery: any = {reason: null, status: null};
     bakeryInfo: any;
     userInfo: any;
     reasons = [{
         name: 'At Work',
-        value: true,
-        title: 'At Work'
+        value: false,
+        status: true
     }, {
         name: 'Not in Work',
         value: false,
-        title: 'Not in Work'
+        status: false
     }];
 
     constructor(
@@ -35,7 +35,12 @@ export class StateOfBakeryPage implements OnInit {
     }
 
     updateStatus() {
-        this.helper.bakeryStatus(this.bakeryInfo);
+        const data = {
+            id: this.bakeryInfo.id,
+            status: this.bakery.status,
+            reason: this.bakery.reason,
+        };
+        const response = this.helper.bakeryStatus(data);
     }
 
     selection(name: string) {
@@ -45,4 +50,13 @@ export class StateOfBakeryPage implements OnInit {
             }
         });
     }
+
+    getStatus(status) {
+        this.bakery.status = status;
+        console.log('statusL: ', status);
+    }
+
+    // sendReport() {
+    //
+    // }
 }

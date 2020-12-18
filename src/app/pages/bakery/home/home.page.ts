@@ -24,6 +24,7 @@ export class HomePage {
     }
 
     getBakery() {
+        console.log('user: ', this.userInfo);
         this.helper.startLoad();
         this.api.getDataFromApi('home_bakery/' + this.userInfo.id)
             .subscribe(response => {
@@ -32,6 +33,7 @@ export class HomePage {
                 this.helper.dismissLoader();
                 // @ts-ignore
                 this.bakeryInfo = response.bakeryInfo;
+                console.log(response);
                 if (this.bakeryInfo.status) {
                     this.bakeryStatusIcon = 'assets/icon/on.svg';
                 } else {
@@ -48,5 +50,9 @@ export class HomePage {
 
     requestOrder(item) {
         this.nav.navigateForward('order-details', item);
+    }
+
+    openList() {
+        this.nav.navigateForward('list-orders', this.bakeryInfo);
     }
 }

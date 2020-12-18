@@ -43,8 +43,12 @@ const routes: Routes = [
             .then(m => m.AgentStateOfBakeryPageModule)
     },
     {
+        path: 'agent-list-orders',
+        loadChildren: () => import('./pages/agents/agent-list-orders/agent-list-orders.module').then(m => m.AgentListOrdersPageModule)
+    },
+    {
         path: 'list-orders',
-        loadChildren: () => import('./pages/agents/list-orders/list-orders.module').then(m => m.ListOrdersPageModule)
+        loadChildren: () => import('./pages/bakery/list-orders/list-orders.module').then(m => m.ListOrdersPageModule)
     },
     {
         path: 'state-of-bakery',

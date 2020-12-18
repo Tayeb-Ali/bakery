@@ -24,24 +24,25 @@
                 <ion-label>{{reason.name}}</ion-label>
                 <ion-checkbox mode="ios"
                               [disabled]="reasons[i].value"
+                              (ionChange)="getStatus(reasons[i].status)"
                               (click)="selection(reason.name);">
                 </ion-checkbox>
             </ion-item>
 
             <div>
-                <ion-label style="margin-left: 4%;"><p>More details</p></ion-label>
-                <ion-textarea [(ngModel)]="bakery.report_details" rows="4">
+                <ion-label style="margin-left: 4%;"><p>Reason that it's been closed</p></ion-label>
+                <ion-textarea class="input-text" [(ngModel)]="bakery.reason" rows="4">
 
                 </ion-textarea>
             </div>
         </ion-card-content>
     </ion-card>
 
-    <!--  <div class="ion-text-center">-->
-    <!--    <ion-button color="secondary" (click)="sendReport()">-->
-    <!--      <ion-label color="light">Send Report</ion-label>-->
-    <!--    </ion-button>-->
-    <!--  </div>-->
+    <div class="ion-text-center">
+        <ion-button color="secondary" (click)="updateStatus()">
+            <ion-label color="light">Send Report</ion-label>
+        </ion-button>
+    </div>
 
     <ion-card>
         <ion-card-content>
