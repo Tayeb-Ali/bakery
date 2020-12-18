@@ -33,8 +33,8 @@ const routes: Routes = [
         loadChildren: () => import('./pages/bakery/order-details/order-details.module').then(m => m.OrderDetailsPageModule)
     },
     {
-        path: 'received-agent-order-details',
-        loadChildren: () => import('./pages/received-order-details/received-order-details.module')
+        path: 'received-order-details',
+        loadChildren: () => import('./pages/bakery/received-order-details/received-order-details.module')
             .then(m => m.ReceivedOrderDetailsPageModule)
     },
     {

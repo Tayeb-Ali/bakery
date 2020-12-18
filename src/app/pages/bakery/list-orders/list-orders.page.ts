@@ -1,8 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
-import {NavController} from '@ionic/angular';
+import {IonInfiniteScroll, NavController} from '@ionic/angular';
 import {ApiService} from '../../../services/api.service';
-import {IonInfiniteScroll} from '@ionic/angular/directives/proxies';
 
 @Component({
     selector: 'app-list-orders',

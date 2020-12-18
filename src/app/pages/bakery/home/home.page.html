@@ -23,8 +23,11 @@
             <ion-card-content>
                 <br>
                 <br>
-                <ion-button class="button-size" (click)="requestOrder(bakeryInfo)" expand="block" color="secondary">
-                    <span style="color: white">Report a Problem</span>
+                <ion-button (click)="orderDetails(bakeryInfo)" color="tertiary">
+                    <span style="color: white">Delivered Order</span>
+                </ion-button>
+                <ion-button (click)="requestOrder(bakeryInfo)" color="secondary">
+                    <span style="color: white">Request Order</span>
                 </ion-button>
             </ion-card-content>
 
@@ -34,7 +37,7 @@
 
             </ion-row>
 
-            <div class="request" *ngFor="let request of requests">
+            <div class="request" *ngFor="let request of requests" (click)="orderDetails(request)">
                 <ion-label slot="start" class="ion-text-lg-left">
                     <p><b>Order</b> <span style="color: var(--ion-color-primary)"> #{{request?.id}}</span></p>
                     <br>

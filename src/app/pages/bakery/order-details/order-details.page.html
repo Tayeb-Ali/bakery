@@ -2,7 +2,9 @@
     <ion-header [translucent]="true">
         <ion-toolbar>
             <ion-buttons slot="start">
-                <ion-back-button color="light" icon="arrow-back-outline"></ion-back-button>
+                <ion-button routerLink="/home" routerDirection="back">
+                    <ion-icon slot="icon-only" class="light" name="chevron-back-outline"></ion-icon>
+                </ion-button>
             </ion-buttons>
         </ion-toolbar>
 

@@ -55,4 +55,13 @@ export class HomePage {
     openList() {
         this.nav.navigateForward('list-orders', this.bakeryInfo);
     }
+
+    orderDetails(order) {
+        const orderInfo = {
+            orderInfo: order,
+            bakeryInfo: this.bakeryInfo
+        };
+        // @ts-ignore
+        this.nav.navigateForward('received-order-details', orderInfo);
+    }
 }
